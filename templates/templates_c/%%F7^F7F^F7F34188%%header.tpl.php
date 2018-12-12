@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-11-08 17:54:04
+<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:47
          compiled from header.tpl */ ?>
 <head>
 
@@ -7,8 +7,8 @@
 	
 
     <title>Gogowash Web Portal</title>
-	<link rel="icon" href="images/SgMedIntel-Favicon-Normal.png" type="image/png">
-    <link href="images/mobileLogo/icon_sgimed_128.png" rel="icon" sizes="128x128" />
+	<link rel="icon" href="images/logo.png" type="image/png">
+    <link href="images/logo.png" rel="icon" sizes="128x128" />
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">

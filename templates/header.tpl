@@ -5,8 +5,8 @@
 	
 
     <title>Gogowash Web Portal</title>
-	<link rel="icon" href="images/SgMedIntel-Favicon-Normal.png" type="image/png">
-    <link href="images/mobileLogo/icon_sgimed_128.png" rel="icon" sizes="128x128" />
+	<link rel="icon" href="images/logo.png" type="image/png">
+    <link href="images/logo.png" rel="icon" sizes="128x128" />
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-10 16:36:25
+<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:47
          compiled from menu.tpl */ ?>
 <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">

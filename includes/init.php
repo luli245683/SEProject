@@ -2,8 +2,7 @@
 
 define('APP_REAL_PATH', str_replace('includes/init.php', '', str_replace('\\', '/', __FILE__)));
 
-include(APP_REAL_PATH."includes/log4php/Logger.php");
-Logger::configure(APP_REAL_PATH.'includes/log4php.config.xml');
+
 date_default_timezone_set("Asia/Taipei");
 require_once(APP_REAL_PATH . "includes/config.php");
 require_once(APP_REAL_PATH . "includes/MySQLClass.php");

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-11-08 20:37:25
+<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:47
          compiled from page_footer.tpl */ ?>
 <!-- Mainly scripts -->
 <script src="js/jquery-3.1.1.min.js"></script>
