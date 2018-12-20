@@ -4,7 +4,7 @@ require_once("includes/init.php");
 require_once("includes/lib_system.php");
 if(empty($_GET["act"])){
 	$smarty->assign('county_list' , get_country_list());
-
+	$smarty->assign('luli' , 'I am LULI!');
 	$smarty->display('register.tpl');
 }
 if($_GET["act"]=='get_region'){

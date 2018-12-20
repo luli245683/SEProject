@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:49
+<?php /* Smarty version 2.6.19, created on 2018-12-15 16:24:52
          compiled from login.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -99,7 +99,9 @@ unset($_smarty_tpl_vars);
 <script type="text/javascript">
      $(document).ready(function(){
 
-            
+            console.log(\''; ?>
+<?php echo $this->_tpl_vars['test_console']; ?>
+<?php echo '\');
 
         });
 </script>

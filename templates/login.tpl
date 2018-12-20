@@ -92,7 +92,7 @@
 <script type="text/javascript">
      $(document).ready(function(){
 
-            
+            console.log('{/literal}{$test_console}{literal}');
 
         });
 </script>

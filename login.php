@@ -40,7 +40,7 @@ $is_login = ($_SESSION['is_login'] >0 ? true : false);
 	
 $smarty->assign("login_msg", $msg);
 $smarty->assign("is_login", $is_login);
-
+$smarty->assign("test_console" , "success");
 $smarty->display('login.tpl');
 
 ?>

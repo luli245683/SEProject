@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:47
+<?php /* Smarty version 2.6.19, created on 2018-12-18 19:22:43
          compiled from header.tpl */ ?>
 <head>
 
@@ -58,7 +58,8 @@
     <!-- c3 Charts -->
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/plugins/c3/c3.min.css" rel="stylesheet">
-
+    <link href="css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="css/plugins/slick/slick-theme.css" rel="stylesheet">
 
 		<?php echo '
 	<script>

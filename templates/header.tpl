@@ -56,7 +56,8 @@
     <!-- c3 Charts -->
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/plugins/c3/c3.min.css" rel="stylesheet">
-
+    <link href="css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="css/plugins/slick/slick-theme.css" rel="stylesheet">
 
 		{literal}
 	<script>

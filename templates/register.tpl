@@ -25,7 +25,8 @@
 <body class="gray-bg login-css">
     <div class="registerColumns animated fadeInDown">
         <div class="row registerPanel">
-            <h2 class="font-bold">Welcome to IN+</h2>
+            <h2 class="font-bold">{$luli}</h2>
+
             <div class="row">
                 <div class="form-group col-md-8">
                     <div class="row">
@@ -242,7 +243,7 @@
             // register_info.county = $('#county').val();
             register_info.Region = $('#region').val();
             $.get('register.php' , {act:'register',register_info:register_info} , function(data){
-                
+
                 var result = JSON.parse(data);
                 if(result.is_success == 1 ){
                     toastr.success(result.message , 'Success', 
