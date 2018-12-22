@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:47
+<?php /* Smarty version 2.6.19, created on 2018-12-22 15:04:26
          compiled from page_footer.tpl */ ?>
 <!-- Mainly scripts -->
 <script src="js/jquery-3.1.1.min.js"></script>
@@ -10,7 +10,7 @@
 <script src="js/plugins/pace/pace.min.js"></script>
 <div class="footer">
 	<div class="pull-right">
-		<strong>Copyright</strong> SGiMED &copy; 2017
+		<strong>Copyright</strong> FORESEE &copy; 2018
 	</div>
 </div>
 

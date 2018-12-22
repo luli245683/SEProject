@@ -8,7 +8,7 @@
     <div id="page-wrapper" class="gray-bg">
     {include file="page_header.tpl"}    
         <div class="wrapper wrapper-content">
-        {if is_access('TEST','Edit')}
+        {if is_access('Candicate','Publish')}
         <button type="button" class="btn btn-primary" id="btn_cu" onclick="cu_click()">Show Toast</button>
         {/if}
         {if is_access('TEST','Show')}

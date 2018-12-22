@@ -1,16 +1,16 @@
 <?
-// define("db_host","140.115.87.187");
-// define("db_user","luli");
-// define("db_password","0034");
-
-// define("db_port","3306");
-// define("db_name","Hackathon2018");
-define("db_host","127.0.0.1");
-define("db_user","root");
-define("db_password","12345678");
+define("db_host","140.115.87.61");
+define("db_user","luli");
+define("db_password","0034");
 
 define("db_port","3306");
 define("db_name","seproject");
+// define("db_host","127.0.0.1");
+// define("db_user","root");
+// define("db_password","12345678");
+
+// define("db_port","3306");
+// define("db_name","seproject");
 
 // php date format
 define("php_datetime_fmt","Y-m-d H:i:s");   

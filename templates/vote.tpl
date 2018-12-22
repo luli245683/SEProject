@@ -4,7 +4,7 @@
 
 
 
-<body>
+<body class="mini-navbar">
 <div id="wrapper">
     {include file="menu.tpl"}
     <div id="page-wrapper" class="gray-bg">

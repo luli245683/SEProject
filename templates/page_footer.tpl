@@ -8,7 +8,7 @@
 <script src="js/plugins/pace/pace.min.js"></script>
 <div class="footer">
 	<div class="pull-right">
-		<strong>Copyright</strong> SGiMED &copy; 2017
+		<strong>Copyright</strong> FORESEE &copy; 2018
 	</div>
 </div>
 

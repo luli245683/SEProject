@@ -4239,6 +4239,11 @@ a.close-canvas-menu:hover {
   width: 240px;
   float: left;
 }
+.fh-column-custom {
+  background: #fff;
+  height: 100%;
+  float: left;
+}
 .modal-backdrop {
   z-index: 2040 !important;
 }

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-18 22:21:40
+<?php /* Smarty version 2.6.19, created on 2018-12-21 21:51:23
          compiled from vote.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@ unset($_smarty_tpl_vars);
 
 
 
-<body>
+<body class="mini-navbar">
 <div id="wrapper">
     <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.tpl", 'smarty_include_vars' => array()));

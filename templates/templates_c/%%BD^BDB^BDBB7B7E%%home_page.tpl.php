@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-12 11:46:22
+<?php /* Smarty version 2.6.19, created on 2018-12-20 19:18:02
          compiled from home_page.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>    
         <div class="wrapper wrapper-content">
-        <?php if (is_access ( 'TEST' , 'Edit' )): ?>
+        <?php if (is_access ( 'Candicate' , 'Publish' )): ?>
         <button type="button" class="btn btn-primary" id="btn_cu" onclick="cu_click()">Show Toast</button>
         <?php endif; ?>
         <?php if (is_access ( 'TEST' , 'Show' )): ?>
