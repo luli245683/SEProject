@@ -50,7 +50,7 @@
                             <div class="social-comment">
                                 <a href="" class="pull-left">
                                     <div class="social_img_comment">
-                                    <img alt="image" src="img/member.jpg">
+                                    <img alt="image" src="images/{$smarty.session.user_name}.jpg">
                                     </div>
                                 </a>
                                 <div class="media-body">
@@ -69,7 +69,7 @@
                             <div class="social-comment">
                                 <a href="" class="pull-left">
                                     <div class="social_img_comment">
-                                    <img alt="image" src="img/member.jpg">
+                                    <img alt="image" src="images/{$smarty.session.user_name}.jpg">
                                     </div>
                                 </a>
                                 <div class="media-body">

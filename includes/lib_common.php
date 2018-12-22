@@ -11,7 +11,7 @@ function check_login($account,$pass){
 			$loginResult = -2;
 		}else{
 			$loginResult = 1;
-			$_SESSION['user_name'] = $rs[0]['FirstName'].','.$rs[0]['LastName'];
+			$_SESSION['user_name'] = $rs[0]['FirstName'].$rs[0]['LastName'];
 			$_SESSION['role'] = $rs[0]['RoleCode'];
 			$_SESSION['user'] = $rs[0]['UserID'];
 		}

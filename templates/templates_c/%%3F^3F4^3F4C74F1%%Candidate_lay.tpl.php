@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 15:00:52
+<?php /* Smarty version 2.6.19, created on 2018-12-22 15:47:34
          compiled from Candidate_lay.tpl */ ?>
     <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.tpl", 'smarty_include_vars' => array()));

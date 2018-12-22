@@ -1,6 +1,6 @@
     {include file="header.tpl"}
 
-    <body>
+    <body class="mini-navbar">
         <div id="wrapper">
             {include file="menu.tpl"}
             <div id="page-wrapper" class="gray-bg">
@@ -11,16 +11,13 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-content text-center p-md">
-
-                                    <h2>
-                                        <span class="text-navy">INSPINIA - Responsive Admin Theme</span>
-                                        is provided with two main layouts <br>three skins and separate configure options.</h2>
-
-                                    <p>
-                                        All config options you can turn on/off from the theme box configuration (green icon on the left side of page).
-                                    </p>
+                            <div class="ibox ">
+                                <div class="ibox-content " style="padding: 20px ">
+                                    {if 1}
+                                    <div class="input-group ">
+                                        <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom={$smarty.get.CategoryCode}"><strong>發文</strong></a>
+                                    </div>
+                                    {/if}                                  
 
 
                                 </div>
@@ -121,20 +118,21 @@
     });
         $(document).keydown(function (e) {
             if (e.keyCode == 40) {
-                var article_id = $('.active').next('li')[1].id.split('_')[1];
+                
+                var article_id = $('.active').next('li')[0].id.split('_')[1];
 
                get_article_by_id(article_id);
             }
             if(e.keyCode == 38){
-                var article_id = $('.active').prev('li')[2].id.split('_')[1];  
+                var article_id = $('.active').prev('li')[0].id.split('_')[1];  
                 //console.log($('.active').prev('li')[2].id) ;            
                get_article_by_id(article_id);
             }
-            if(e.keyCode == 38){
-                var article_id = $('.active').prev('li')[2].id.split('_')[1];  
-                //console.log($('.active').prev('li')[2].id) ;            
-               get_article_by_id(article_id);
-            }
+            // if(e.keyCode == 38){
+            //     var article_id = $('.active').prev('li')[2].id.split('_')[1];  
+            //     //console.log($('.active').prev('li')[2].id) ;            
+            //    get_article_by_id(article_id);
+            // }
         });
     function get_article_by_id(article_id){
         $.get('general_forum.php' , {act:'get_article' , article_id:article_id} , function(data){

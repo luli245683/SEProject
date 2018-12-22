@@ -1,14 +1,14 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-21 15:55:54
+<?php /* Smarty version 2.6.19, created on 2018-12-22 17:32:07
          compiled from general_forum.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 39, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 36, false),)), $this); ?>
     <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 
-    <body>
+    <body class="mini-navbar">
         <div id="wrapper">
             <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.tpl", 'smarty_include_vars' => array()));
@@ -27,16 +27,14 @@ unset($_smarty_tpl_vars);
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-content text-center p-md">
-
-                                    <h2>
-                                        <span class="text-navy">INSPINIA - Responsive Admin Theme</span>
-                                        is provided with two main layouts <br>three skins and separate configure options.</h2>
-
-                                    <p>
-                                        All config options you can turn on/off from the theme box configuration (green icon on the left side of page).
-                                    </p>
+                            <div class="ibox ">
+                                <div class="ibox-content " style="padding: 20px ">
+                                    <?php if (1): ?>
+                                    <div class="input-group ">
+                                        <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom=<?php echo $_GET['CategoryCode']; ?>
+"><strong>發文</strong></a>
+                                    </div>
+                                    <?php endif; ?>                                  
 
 
                                 </div>
@@ -150,20 +148,21 @@ unset($_smarty_tpl_vars);
     });
         $(document).keydown(function (e) {
             if (e.keyCode == 40) {
-                var article_id = $(\'.active\').next(\'li\')[1].id.split(\'_\')[1];
+                
+                var article_id = $(\'.active\').next(\'li\')[0].id.split(\'_\')[1];
 
                get_article_by_id(article_id);
             }
             if(e.keyCode == 38){
-                var article_id = $(\'.active\').prev(\'li\')[2].id.split(\'_\')[1];  
+                var article_id = $(\'.active\').prev(\'li\')[0].id.split(\'_\')[1];  
                 //console.log($(\'.active\').prev(\'li\')[2].id) ;            
                get_article_by_id(article_id);
             }
-            if(e.keyCode == 38){
-                var article_id = $(\'.active\').prev(\'li\')[2].id.split(\'_\')[1];  
-                //console.log($(\'.active\').prev(\'li\')[2].id) ;            
-               get_article_by_id(article_id);
-            }
+            // if(e.keyCode == 38){
+            //     var article_id = $(\'.active\').prev(\'li\')[2].id.split(\'_\')[1];  
+            //     //console.log($(\'.active\').prev(\'li\')[2].id) ;            
+            //    get_article_by_id(article_id);
+            // }
         });
     function get_article_by_id(article_id){
         $.get(\'general_forum.php\' , {act:\'get_article\' , article_id:article_id} , function(data){

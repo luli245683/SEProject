@@ -62,4 +62,46 @@ function check_is_voted($IssueID){
 	$rs =  $GLOBALS['db']->fetch_array($sql , $ps);
 	return count($rs)>0;
 }
+
+function get_ans_count(){
+	$sql = "SELECT i.IssueID , i.IssueName , ii.IssueItemID , ii.context , count(v.UserID) as total FROM `issue` as i
+		 	LEFT JOIN `issueitem` as ii ON ii.IssueID = i.IssueID LEFT JOIN `voting` as v ON v.IssueItemID = ii.IssueItemID 
+			GROUP BY ii.IssueItemID ";
+	$ps = array();
+	$rs = $GLOBALS['db']->fetch_array($sql,$ps);
+	// print_r($rs);
+	$issue_list = get_issue_list();
+	$result = array();
+	for ($i=0; $i < count($issue_list) ; $i++) { 
+		for ($j=0; $j < count($rs); $j++) { 
+			if($rs[$j]['IssueID'] == $issue_list[$i]['IssueID'])
+				$issue_list[$i]['ItemList'][] = $rs[$j];
+		}
+		$issue_list[$i]['Sum'] = sum_total($issue_list[$i]['ItemList']);
+	}
+	return $issue_list;
+
+}
+
+
+function percentage($IssueID){
+	$sql = "SELECT UserID FROM `voting` WHERE IssueID = ? ";
+	$ps = array($IssueID);
+	$rs = $GLOBALS['db']->fetch_array($sql,$ps);
+
+	for ($i=0; $i < count($UserID) ; $i++) { 
+		$result[] = $array[$i]['votesum'];
+	}
+
+	return $result;
+
+}
+
+function sum_total($array){
+	$tmp = 0;
+	for ($i=0; $i < count($array) ; $i++) { 
+		$tmp += $array[$i]['total'];
+	}
+	return $tmp;
+}
 ?>

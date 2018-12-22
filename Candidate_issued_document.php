@@ -6,13 +6,13 @@ require_once("includes/lib_Candidate.php");
 $_SESSION["active_page"]='Candidate_issued_document';
 
 
-if(empty($_GET["act"])){
+if(empty($_POST["act"])){
 
 	$smarty->display('Candidate_issued_document.tpl');
 }
-if($_GET["act"]=='article_submit'){
+if($_POST["act"]=='article_submit'){
 
-	echo article_submit($_GET['Title_text'],$_GET['Context_text']);
+	echo article_submit($_POST['Title_text'],$_POST['Context_text'] , $_POST['Category']);
 }
 
 

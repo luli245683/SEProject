@@ -25,23 +25,34 @@
 
                         </h4>
                         <div class="slick_demo_1">
-                             {foreach from=$issue_list item=issue}
+
+                            {foreach from=$ans_count item=issue}
                             <div>
                                 <div class="ibox-content">
                                     <h2> <a class="vote-title  alert  m-b-sm" style="margin: 0px;background-color: {$issue.color}">{$issue.IssueID}.{$issue.IssueName} </a></h2>
 
                                         <hr/>
-  
-                                    <ul class="stat-list">
-                                        <li>
-                                            <h2 class="no-margins">2,346</h2>
-                                            <small>Total orders in period</small>
-                                            <div class="stat-percent"><i class="fa fa-level-up text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 12%;" class="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        <li>
+                                     
+                                        
+                                      <ul class="stat-list">
+                                            {foreach from=$issue.ItemList item=ans_count}
+                                                <li>
+                                                    {if $issue.Sum > 0}
+                                                    {assign var="persentage" value=$ans_count.total/$issue.Sum*100}
+                                                    {/if}
+                                                    <h2 class="no-margins" >{$ans_count.total}</h2>
+                                                    <small>{$ans_count.context}</small>
+                                                    <div class="stat-percent">{$persentage}%<i class="fa fa-level-up text-navy"></i></div>
+                                                    <div class="progress progress-mini">
+                                                        <div style="width: {$persentage}%;" class="progress-bar"></div>
+                                                    </div>
+                                                </li>
+                                            {/foreach}
+                       
+                                         </ul>
+                                  
+                                 
+                                        <!-- <li>
                                             <h2 class="no-margins ">4,422</h2>
                                             <small>Orders in last month</small>
                                             <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
@@ -56,7 +67,7 @@
                                             <div class="progress progress-mini">
                                                 <div style="width: 22%;" class="progress-bar"></div>
                                             </div>
-                                        </li>
+                                        </li> -->
              
                                     
                                 </div>
@@ -90,7 +101,7 @@
                                         {foreach from=$item_list item=item}
                                         {if $item.IssueID == $issue.IssueID}                                  
                                         <label> 
-                                            <input class="Option_{$item.IssueID}" type="radio" name="{$item.IssueID}"  onclick="voting('{$item.OptionID}' , '{$item.IssueID}')"> 
+                                            <input class="Option_{$item.IssueID}" type="radio" name="{$item.IssueID}"  onclick="voting('{$item.IssueItemID}' , '{$item.IssueID}')"> 
                                             <i></i>{$item.context}</label>
                                         {/if}
                                         {/foreach}
@@ -105,8 +116,6 @@
                     </div>
                 </div>
             </div>
-<input class="Option_" type="radio"  >
-<input class="Option_" type="radio"  >
 
 <!--         <table>
             <thead>

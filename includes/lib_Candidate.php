@@ -173,10 +173,32 @@ function article_search($Context_val)
 }
 
 
-function article_submit($Title_text,$Context_text){
-	//$_SESSION['user'] , $_SESSION['role']
-	
+function article_submit($Title_text,$Context_text , $category_id){
+	//$_SESSION['user'] $_SESSION['role']
+	$article_id = get_key_sequence('article');
 
+
+
+	$sql = array();
+	$ps = array();
+	$msg = array();
+
+	$sql[] = 'INSERT INTO article 
+		(ArticleID , Title , Type ,cdate, Context , UserID , CategoryCode) 
+		VALUES(?,?,?,CURRENT_TIMESTAMP ,?,?,?)';
+	$ps[]=array($article_id,$Title_text,$_SESSION['role'],$Context_text,$_SESSION['user'] , $category_id);
+	$result = $GLOBALS['db']->transaction($sql , $ps);
+
+	if(empty($result)){//這是成功的
+		update_sequence('article');
+		$msg['is_success'] = 1;
+		$msg['message'] = 'Publish Candicate Article Seccessful! ';
+		return json_encode($msg);
+	}else{
+		$msg['is_success'] = 0;
+		$msg['message'] = 'OOPs'.$result;
+		return json_encode($msg);
+	}
 }
 
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-21 21:51:23
+<?php /* Smarty version 2.6.19, created on 2018-12-22 17:55:11
          compiled from vote.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +39,8 @@ unset($_smarty_tpl_vars);
 
                         </h4>
                         <div class="slick_demo_1">
-                             <?php $_from = $this->_tpl_vars['issue_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+
+                            <?php $_from = $this->_tpl_vars['ans_count']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['issue']):
 ?>
                             <div>
@@ -50,17 +51,33 @@ unset($_smarty_tpl_vars);
  </a></h2>
 
                                         <hr/>
-  
-                                    <ul class="stat-list">
-                                        <li>
-                                            <h2 class="no-margins">2,346</h2>
-                                            <small>Total orders in period</small>
-                                            <div class="stat-percent"><i class="fa fa-level-up text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 12%;" class="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        <li>
+                                     
+                                        
+                                      <ul class="stat-list">
+                                            <?php $_from = $this->_tpl_vars['issue']['ItemList']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['ans_count']):
+?>
+                                                <li>
+                                                    <?php if ($this->_tpl_vars['issue']['Sum'] > 0): ?>
+                                                    <?php $this->assign('persentage', $this->_tpl_vars['ans_count']['total']/$this->_tpl_vars['issue']['Sum']*100); ?>
+                                                    <?php endif; ?>
+                                                    <h2 class="no-margins" ><?php echo $this->_tpl_vars['ans_count']['total']; ?>
+</h2>
+                                                    <small><?php echo $this->_tpl_vars['ans_count']['context']; ?>
+</small>
+                                                    <div class="stat-percent"><?php echo $this->_tpl_vars['persentage']; ?>
+%<i class="fa fa-level-up text-navy"></i></div>
+                                                    <div class="progress progress-mini">
+                                                        <div style="width: <?php echo $this->_tpl_vars['persentage']; ?>
+%;" class="progress-bar"></div>
+                                                    </div>
+                                                </li>
+                                            <?php endforeach; endif; unset($_from); ?>
+                       
+                                         </ul>
+                                  
+                                 
+                                        <!-- <li>
                                             <h2 class="no-margins ">4,422</h2>
                                             <small>Orders in last month</small>
                                             <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
@@ -75,7 +92,7 @@ unset($_smarty_tpl_vars);
                                             <div class="progress progress-mini">
                                                 <div style="width: 22%;" class="progress-bar"></div>
                                             </div>
-                                        </li>
+                                        </li> -->
              
                                     
                                 </div>
@@ -118,7 +135,7 @@ unset($_smarty_tpl_vars);
                                         <label> 
                                             <input class="Option_<?php echo $this->_tpl_vars['item']['IssueID']; ?>
 " type="radio" name="<?php echo $this->_tpl_vars['item']['IssueID']; ?>
-"  onclick="voting('<?php echo $this->_tpl_vars['item']['OptionID']; ?>
+"  onclick="voting('<?php echo $this->_tpl_vars['item']['IssueItemID']; ?>
 ' , '<?php echo $this->_tpl_vars['item']['IssueID']; ?>
 ')"> 
                                             <i></i><?php echo $this->_tpl_vars['item']['context']; ?>
@@ -136,8 +153,6 @@ unset($_smarty_tpl_vars);
                     </div>
                 </div>
             </div>
-<input class="Option_" type="radio"  >
-<input class="Option_" type="radio"  >
 
 <!--         <table>
             <thead>
@@ -240,4 +255,4 @@ unset($_smarty_tpl_vars);
     '; ?>
 
 </body>
-</html>
+</html>

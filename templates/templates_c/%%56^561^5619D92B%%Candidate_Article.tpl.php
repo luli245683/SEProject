@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-21 17:43:54
+<?php /* Smarty version 2.6.19, created on 2018-12-22 16:03:30
          compiled from Candidate_Article.tpl */ ?>
                     <?php $_from = $this->_tpl_vars['candicate_Article']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['article']):
@@ -65,7 +65,8 @@
                             <div class="social-comment">
                                 <a href="" class="pull-left">
                                     <div class="social_img_comment">
-                                    <img alt="image" src="img/member.jpg">
+                                    <img alt="image" src="images/<?php echo $_SESSION['user_name']; ?>
+.jpg">
                                     </div>
                                 </a>
                                 <div class="media-body">
@@ -88,7 +89,8 @@
                             <div class="social-comment">
                                 <a href="" class="pull-left">
                                     <div class="social_img_comment">
-                                    <img alt="image" src="img/member.jpg">
+                                    <img alt="image" src="images/<?php echo $_SESSION['user_name']; ?>
+.jpg">
                                     </div>
                                 </a>
                                 <div class="media-body">

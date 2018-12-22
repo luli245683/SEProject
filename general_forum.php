@@ -22,7 +22,7 @@ if($_GET["act"] == 'Forumpage'){
 }
 if($_GET["act"] == 'get_article'){
 	$article = get_article_by_aid($_GET['article_id']);
-	$article['reply'] = get_reply_Article($_GET['article_id']);
+	$article['reply'] = get_Article_reply($_GET['article_id']);
 	$article['praise']=get_praise_Article($_GET['article_id'] ,$_SESSION['user']);
 	$result = array();
 	$smarty->assign('article' , $article);
