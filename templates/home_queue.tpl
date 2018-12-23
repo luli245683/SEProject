@@ -51,7 +51,9 @@
                 textAreaHeight: '300px',
                 responsive : true,
                 onStateClick: function(data) {                    
-                      window.location.assign("candidate_info.php?province_id="+data.abbreviation);
+                      var province_id = data.abbreviation.split('_')[0];
+                      var county_id = data.abbreviation.split('_')[1];
+                      window.location.assign("candidate_info.php?province_id="+province_id+"&county_id="+county_id);
                   }
               });
     });

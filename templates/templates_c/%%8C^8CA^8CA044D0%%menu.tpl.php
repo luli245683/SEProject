@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 15:00:21
+<?php /* Smarty version 2.6.19, created on 2018-12-23 19:19:51
          compiled from menu.tpl */ ?>
 <nav class="navbar-default navbar-static-side " role="navigation">
         <div class="sidebar-collapse">
@@ -29,8 +29,8 @@
                 <li <?php if ($_SESSION['active_page'] == 'vote'): ?> class="active" <?php endif; ?>>
                     <a href="vote.php"><i class="fa fa-sort-numeric-asc"></i> <span class="nav-label">Voting </span><span class="label label-info pull-right">2</span></a>
                 </li>
-                <li class="landing_link">
-                    <a target="_blank" href="landing.html"><i class="fa fa-cog"></i> <span class="nav-label">Setting</span> <span class="label label-warning pull-right">NEW</span></a>
+                <li class="landing_link <?php if ($_SESSION['active_page'] == 'edit_account'): ?> active <?php endif; ?> " >
+                    <a target="_blank" href="edit_account.php"><i class="fa fa-cog"></i> <span class="nav-label">Setting</span> </a>
                 </li>
             </ul>
 

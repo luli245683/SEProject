@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 17:55:11
+<?php /* Smarty version 2.6.19, created on 2018-12-23 17:36:56
          compiled from vote.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@ unset($_smarty_tpl_vars);
                             <div>
                                 <div class="ibox-content">
                                     <h2> <a class="vote-title  alert  m-b-sm" style="margin: 0px;background-color: <?php echo $this->_tpl_vars['issue']['color']; ?>
-"><?php echo $this->_tpl_vars['issue']['IssueID']; ?>
+"><?php echo $this->_tpl_vars['index']; ?>
 .<?php echo $this->_tpl_vars['issue']['IssueName']; ?>
  </a></h2>
 

@@ -26,8 +26,8 @@
                 <li {if $smarty.session.active_page == 'vote'} class="active" {/if}>
                     <a href="vote.php"><i class="fa fa-sort-numeric-asc"></i> <span class="nav-label">Voting </span><span class="label label-info pull-right">2</span></a>
                 </li>
-                <li class="landing_link">
-                    <a target="_blank" href="landing.html"><i class="fa fa-cog"></i> <span class="nav-label">Setting</span> <span class="label label-warning pull-right">NEW</span></a>
+                <li class="landing_link {if $smarty.session.active_page == 'edit_account'} active {/if} " >
+                    <a target="_blank" href="edit_account.php"><i class="fa fa-cog"></i> <span class="nav-label">Setting</span> </a>
                 </li>
             </ul>
 

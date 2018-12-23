@@ -1,7 +1,7 @@
 <?php
 $is_login_page = true;
 require_once("includes/init.php"); 
-require_once("includes/lib_system.php");
+require_once("includes/lib_administrator.php");
 if(empty($_GET["act"])){
 	$smarty->assign('county_list' , get_country_list());
 	$smarty->assign('luli' , 'I am LULI!');

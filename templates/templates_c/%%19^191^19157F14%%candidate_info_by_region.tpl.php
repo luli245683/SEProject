@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 14:59:28
+<?php /* Smarty version 2.6.19, created on 2018-12-23 19:11:38
          compiled from candidate_info_by_region.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -115,7 +115,11 @@ unset($_smarty_tpl_vars);
             <button id="submit" onclick="get_member_by_electorate_id()">確認</button> -->
 
             <div class="row" id="member_area" >
-                
+            <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "candidate_info_member_list.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
             </div>
 
 
@@ -164,6 +168,8 @@ unset($_smarty_tpl_vars);
         $.get(\'candidate_info.php\',{act:\'update_member_list\',electorate_id:electorate_id , 
             province_id:"'; ?>
 <?php echo $_GET['province_id']; ?>
+<?php echo '" , county_id:"'; ?>
+<?php echo $_GET['county_id']; ?>
 <?php echo '"},function(data){
             console.log(data);
             $(\'#member_area\').html(data);

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-12 17:29:47
+<?php /* Smarty version 2.6.19, created on 2018-12-23 19:55:45
          compiled from register.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -29,107 +29,118 @@
         <div class="row registerPanel">
             <h2 class="font-bold"><?php echo $this->_tpl_vars['luli']; ?>
 </h2>
-
-            <div class="row">
-                <div class="form-group col-md-8">
-                    <div class="row">
-                        <div class="form-group col-md-6" >
-                            <label >First Name *</label>
-                            <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control required valid" aria-required="true" aria-invalid="false">
-                        </div>
-                        <div class="form-group col-md-6" >
-                            <label>Last Name *</label>
-                            <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control required valid" aria-required="true" aria-invalid="false">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-12" >
-                            <label>Account Number *</label>
-                            <input id="account" name="accountNumber" type="text" placeholder="Account Number" class="form-control required valid" aria-required="true" aria-invalid="false">
-                        </div>
-                    </div>
-                    <div id="pwd-container4">
+            
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <form role="register_form" id="register_form">
                         <div class="row">
                             <div class="form-group col-md-6" >
-                                <div class="form-group">
-                                    <label for="password4">Password</label>
-                                    <input type="password" class="form-control example4" id="password" >
+                                <label >First Name *</label>
+                                <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control required valid" aria-required="true" aria-invalid="false">
+                            </div>
+                            <div class="form-group col-md-6" >
+                                <label>Last Name *</label>
+                                <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control required valid" aria-required="true" aria-invalid="false">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12" >
+                                <label>Account*</label>
+                                <input id="account" name="account" type="text" placeholder="Account" class="form-control required valid" aria-required="true" aria-invalid="false">
+                            </div>
+                        </div>
+                        <div id="pwd-container4">
+                            <div class="row">
+                                <div class="form-group col-md-6" >
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control example4" id="password" name="password" >
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6" >
+                                    <label>Confirm *</label>
+                                    <input id="password_confirm" name="confirm" type="password" placeholder="Confirm" class="form-control required valid" aria-required="true" aria-invalid="false" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <span class="font-bold pwstrength_viewport_verdict4"></span>
+                                    <span class="pwstrength_viewport_progress4"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6" >
+                                <label>IDF *</label>
+                                <input id="idf" name="idf" type="text" placeholder="ID Number" class="form-control required valid" aria-required="true" aria-invalid="false">
+                            </div>
+                            <div class="form-group col-md-6" >
+                                <label>Email</label>
+                                <input id="email" name="email" type="text" placeholder="email" class="form-control required valid" aria-required="true" aria-invalid="false">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6" id="data_1">
+                                <label>Birth *</label>
+                                <div class="input-group ">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="birthday"  id="birthday_selector" class="form-control" >
                                 </div>
                             </div>
                             <div class="form-group col-md-6" >
-                                <label>Confirm *</label>
-                                <input id="password_confirm" name="confirm" type="password" placeholder="Confirm" class="form-control required valid" aria-required="true" aria-invalid="false">
+                                <label>Phone</label>
+                                <input id="phone" name="phone" type="text" placeholder="phone" class="form-control required valid" aria-required="true" aria-invalid="false">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <span class="font-bold pwstrength_viewport_verdict4"></span>
-                                <span class="pwstrength_viewport_progress4"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6" >
-                            <label>IDF *</label>
-                            <input id="idf" name="idf" type="text" placeholder="ID Number" class="form-control required valid" aria-required="true" aria-invalid="false">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6" id="data_1">
-                            <label>Birth *</label>
-                            <div class="input-group ">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"  id="birthday_selector" class="form-control" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-6" >
-                         <label >County*</label>
-                         <select data-placeholder="Choose a County..." class="chosen-select" id="county"  tabindex="2">
-                            <option></option>
-                            <?php $_from = $this->_tpl_vars['county_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+                            <div class="form-group col-md-6" >
+                             <label >County*</label>
+                             <select data-placeholder="Choose a County..." class="chosen-select" id="county"  tabindex="2">
+                                <option></option>
+                                <?php $_from = $this->_tpl_vars['county_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['county']):
 ?>
-                            <?php if ($this->_tpl_vars['county']['CountyCode'] != 'ALL'): ?>
-                            <option value="<?php echo $this->_tpl_vars['county']['CountyCode']; ?>
+                                <?php if ($this->_tpl_vars['county']['CountyCode'] != 'ALL'): ?>
+                                <option value="<?php echo $this->_tpl_vars['county']['CountyCode']; ?>
 "><?php echo $this->_tpl_vars['county']['CountyName']; ?>
 </option>
-                            <?php endif; ?>
-                            <?php endforeach; endif; unset($_from); ?>
-                        </select>
+                                <?php endif; ?>
+                                <?php endforeach; endif; unset($_from); ?>
+                            </select>
+                            </div>
+                            <div class="form-group col-md-6" >
+                                <label >Region *</label>
+                                <div id="area_region">
+                                    <select data-placeholder="Choose a region..." class="chosen-select" id="region"  tabindex="2" >
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6" >
-                            <label >Region *</label>
-                            <div id="area_region">
-                                <select data-placeholder="Choose a region..." class="chosen-select" id="region"  tabindex="2" >
-                                    <option></option>
-                                </select>
+                    </form>
+                        <div class="row">
+                            <div class="col-md-8">
+
+                            </div>
+
+                            <div class="col-md-2">
+                                <button class="ladda-button btn btn-warning" onclick="history.back()">Cancel</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="ladda-button btn btn-warning" onclick="submit_register_request()">Submit</button>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-8">
+                    <div class="form-group col-md-4">
+                        <div style="height: 100px">
 
                         </div>
 
-                        <div class="col-md-2">
-                            <button class="ladda-button btn btn-warning">Cancel</button>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="ladda-button btn btn-warning" onclick="submit_register_request()">Submit</button>
+                        <div class="row">
+                            <a data-gallery=""><img src="img/log-in.png" style="display: block ; margin: auto"></a>
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <div style="height: 100px">
 
-                    </div>
-
-                    <div class="row">
-                        <a data-gallery=""><img src="img/log-in.png" style="display: block ; margin: auto"></a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <hr/>
@@ -164,6 +175,8 @@
 <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
 <!-- Toastr script -->
 <script src="js/plugins/toastr/toastr.min.js"></script>
+<!-- Jquery Validate -->
+<script src="js/plugins/validate/jquery.validate.min.js"></script>
 <?php echo '
 <script>
     $(document).ready(function(){
@@ -182,6 +195,57 @@
         //   "showMethod": "fadeIn",
         //   "hideMethod": "fadeOut"
         // }
+        $("#account").keypress(function(event){
+            var ew = event.which;
+            if(ew == 32)
+                return true;
+            if(48 <= ew && ew <= 57)
+                return true;
+            if(65 <= ew && ew <= 90)
+                return true;
+            if(97 <= ew && ew <= 122)
+                return true;
+            return false;
+        });
+         $("#register_form").validate({
+                 rules: {
+                     firstName: {
+                         required: true
+                     },
+                     lastName: {
+                         required: true
+                     },
+                     account: {
+                         required: true
+                     },
+                     password: {
+                         required: true,
+                         minlength: 8
+                     },
+                     confirm: {
+                         required: true,
+                         equalTo : "#password",
+                         minlength: 8
+                     },
+                     idf: {
+                         required: true,
+                         maxlength: 10,
+                         minlength: 10
+                     },
+                     email: {
+                         required: false,
+                         email: true
+                     },
+                     birthday: {
+                         required: true,
+                         date: true
+                     },
+                     phone: {
+                        required: false
+                     }
+
+                 }
+             });
 
         $(\'.i-checks\').iCheck({
             checkboxClass: \'icheckbox_square-green\',
@@ -235,34 +299,38 @@
 
     function submit_register_request(){
 
-        var password  = $(\'#password\').val();
-        var confirm_pass = $(\'#password_confirm\').val();
-        if(password != confirm_pass)
-            toastr.warning(\'Your confirm password is not equal to password!\',\'ERROR\',);
-        else{
-            var register_info = {};
-            register_info.FirstName = $(\'#firstName\').val();
-            register_info.LastName = $(\'#lastName\').val();
-            register_info.Account = $(\'#account\').val();
-            register_info.password = password;
-            register_info.IDF = $(\'#idf\').val();
-            register_info.BirthDay = $(\'#birthday_selector\').val();
-            // register_info.county = $(\'#county\').val();
-            register_info.Region = $(\'#region\').val();
-            $.get(\'register.php\' , {act:\'register\',register_info:register_info} , function(data){
+        if($("#register_form").valid()){
+            var password  = $(\'#password\').val();
+            var confirm_pass = $(\'#password_confirm\').val();
+            if(password != confirm_pass)
+                toastr.warning(\'Your confirm password is not equal to password!\',\'ERROR\',);
+            else{
+                var register_info = {};
+                register_info.FirstName = $(\'#firstName\').val();
+                register_info.LastName = $(\'#lastName\').val();
+                register_info.Account = $(\'#account\').val();
+                register_info.password = password;
+                register_info.IDF = $(\'#idf\').val();
+                register_info.BirthDay = $(\'#birthday_selector\').val();
+                register_info.email = $(\'#email\').val();
+                register_info.Region = $(\'#region\').val();
+                register_info.phone = $(\'#phone\').val();
+                $.get(\'register.php\' , {act:\'register\',register_info:register_info} , function(data){
 
-                var result = JSON.parse(data);
-                if(result.is_success == 1 ){
-                    toastr.success(result.message , \'Success\', 
-                    {onHidden:function(){
-                          window.location.replace("login.php");
-                    }});
-                    
-                }
-                else
-                    toastr.error(result.message);
-            });
+                    var result = JSON.parse(data);
+                    if(result.is_success == 1 ){
+                        toastr.success(result.message , \'Success\', 
+                        {onHidden:function(){
+                              window.location.replace("login.php");
+                        }});
+                        
+                    }
+                    else
+                        toastr.error(result.message);
+                });
+            }
         }
+        
         
     }
 </script>

@@ -29,7 +29,7 @@
                             {foreach from=$ans_count item=issue}
                             <div>
                                 <div class="ibox-content">
-                                    <h2> <a class="vote-title  alert  m-b-sm" style="margin: 0px;background-color: {$issue.color}">{$issue.IssueID}.{$issue.IssueName} </a></h2>
+                                    <h2> <a class="vote-title  alert  m-b-sm" style="margin: 0px;background-color: {$issue.color}">{$index}.{$issue.IssueName} </a></h2>
 
                                         <hr/>
                                      

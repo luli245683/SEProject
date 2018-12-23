@@ -83,7 +83,7 @@
             <button id="submit" onclick="get_member_by_electorate_id()">確認</button> -->
 
             <div class="row" id="member_area" >
-                
+            {include file="candidate_info_member_list.tpl"}
             </div>
 
 
@@ -124,7 +124,7 @@
         var electorate_id = "'" +electorate;
         //console.log("{/literal}{$smarty.get.province_id}{literal}");
         $.get('candidate_info.php',{act:'update_member_list',electorate_id:electorate_id , 
-            province_id:"{/literal}{$smarty.get.province_id}{literal}"},function(data){
+            province_id:"{/literal}{$smarty.get.province_id}{literal}" , county_id:"{/literal}{$smarty.get.county_id}{literal}"},function(data){
             console.log(data);
             $('#member_area').html(data);
         });

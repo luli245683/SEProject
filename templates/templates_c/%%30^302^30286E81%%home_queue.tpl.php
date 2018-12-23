@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-21 22:35:40
+<?php /* Smarty version 2.6.19, created on 2018-12-23 19:09:07
          compiled from home_queue.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +70,9 @@ unset($_smarty_tpl_vars);
                 textAreaHeight: \'300px\',
                 responsive : true,
                 onStateClick: function(data) {                    
-                      window.location.assign("candidate_info.php?province_id="+data.abbreviation);
+                      var province_id = data.abbreviation.split(\'_\')[0];
+                      var county_id = data.abbreviation.split(\'_\')[1];
+                      window.location.assign("candidate_info.php?province_id="+province_id+"&county_id="+county_id);
                   }
               });
     });

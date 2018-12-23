@@ -2,7 +2,6 @@
 
 require_once("includes/init.php"); 
 require_once("includes/lib_administrator.php");
-require_once("includes/lib_system.php");
 $_SESSION["active_page"]='home_queue';
 
 
