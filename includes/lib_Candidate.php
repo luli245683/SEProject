@@ -149,7 +149,7 @@ function delete_praise($article_id){
 	}
 }
 
-function article_search($Context_val)
+function article_search($Context_val , $CategoryCode = null  , $is_general = false)
 {
 
 
@@ -157,13 +157,26 @@ function article_search($Context_val)
 
 	}else{*/
 		$Context_val = "%".$Context_val."%";
-		$sql = 'SELECT * FROM `article` as ar LEFT JOIN `user` as a ON a.UserID=ar.UserID WHERE ar.Title LIKE ? OR
-				CONCAT(a.FirstName,a.LastName) LIKE ?   ';
+		
+		$sql = 'SELECT * FROM `article` as ar LEFT JOIN `user` as a ON a.UserID=ar.UserID WHERE (ar.Title LIKE ? 
+				 OR ar.Context LIKE ? or CONCAT(a.FirstName , a.LastName) LIKE ? ) ';
+		$ps = array($Context_val,$Context_val,$Context_val);
+		if($is_general){
+			$sql .= ' AND ar.Type = ? ';
+			$ps[] = "GU";
+		}else{
+			$sql .= ' AND ar.Type = ? ';
+			$ps[] = "CU";
+		}
+		if($CategoryCode){
+			$sql .= ' AND ar.CategoryCode = ? ';
+			$ps[] = $CategoryCode;
+		}
 
 		//LIKE '%?%' OR ar.Context LIKE '%?%' OR CONCAT(a.FirstName,a.LastName) LIKE '%?%' ";
 		//WHERE ar.Title LIKE \'%?%\' OR ar.Context LIKE \'%?%\' OR CONCAT(a.FirstName,a.LastName) LIKE \'%?%\'
 
-		$ps = array($Context_val,$Context_val);
+		
 		$result=$GLOBALS['db']->fetch_array($sql , $ps);
 
 		//print_r($sql);

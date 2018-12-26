@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-12 11:44:47
+<?php /* Smarty version 2.6.19, created on 2018-12-26 15:46:30
          compiled from page_header.tpl */ ?>
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
@@ -12,6 +12,12 @@
                 <?php if ($_SESSION['active_page'] == 'system_registration'): ?><li><h3>Registration</h3></li><?php endif; ?>   
                 <?php if ($_SESSION['active_page'] == 'home_titanic'): ?><li><h3>Titanic</h3></li><?php endif; ?>   
                 <?php if ($_SESSION['active_page'] == 'home_page'): ?><li><h3>Home</h3></li><?php endif; ?>   
+                <?php if ($_GET['CategoryCode'] == '01'): ?><li><h3>交通</h3></li><?php endif; ?>   
+                <?php if ($_GET['CategoryCode'] == '02'): ?><li><h3>民生</h3></li><?php endif; ?>   
+                <?php if ($_GET['CategoryCode'] == '03'): ?><li><h3>國防</h3></li><?php endif; ?>   
+                <?php if ($_GET['CategoryCode'] == '04'): ?><li><h3>政治</h3></li><?php endif; ?>   
+                <?php if ($_GET['CategoryCode'] == '05'): ?><li><h3>經濟</h3></li><?php endif; ?>   
+                <?php if ($_GET['CategoryCode'] == '06'): ?><li><h3>社會</h3></li><?php endif; ?>     
             </ul>
         </div>
         <ul class="nav navbar-top-links navbar-right">

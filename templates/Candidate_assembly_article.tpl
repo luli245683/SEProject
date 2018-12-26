@@ -130,12 +130,22 @@
 
          function start_Article(){
             //var Candidate_ID=$('#Candidate_ID').val();
+            var CategoryCode = '{/literal}{$smarty.get.CategoryCode}{literal}';
+            if (CategoryCode == ''){
+                $.get('Candidate_assembly_article.php' , {act:'start_Article'} , function(data){
+                
+                    $('#Candidate_Article_area').html(data);
+                
+                 });
 
-            $.get('Candidate_assembly_article.php' , {act:'start_Article'} , function(data){
-                
-                $('#Candidate_Article_area').html(data);
-                
-            });
+            }else{
+                 $.get('general_article_search.php' , {act:'start_Article' , CategoryCode : CategoryCode } , function(data){
+                    console.log(data);
+                    $('#Candidate_Article_area').html(data);
+                    
+                });
+            }
+
          }
 
 
@@ -193,20 +203,31 @@
 
      }
         function article_search(){
-            
+            var CategoryCode = '{/literal}{$smarty.get.CategoryCode}{literal}';
+
             var Search_Context = $('#Search_Context').val();
+            if(CategoryCode == ''){
 
-            
-            $.get('Candidate_assembly_article.php' , {act:'article_search' ,Search_Context : Search_Context} , function(data){
+                
+                $.get('Candidate_assembly_article.php' , {act:'article_search' ,Search_Context : Search_Context} , function(data){
 
-               
-                $('#Candidate_Article_area').html(data);
-            });
+                   
+                    $('#Candidate_Article_area').html(data);
+                });
+                
+            }else{
+                $.get('general_article_search.php' , {act:'article_search' ,Search_Context : Search_Context} , function(data){
+
+                   
+                    $('#Candidate_Article_area').html(data);
+                });
+            }
 
     }
          function go_Candidate_issued_document(){
                 location.replace("Candidate_issued_document.php");
     }
+
     </script>
     {/literal}
 </body>

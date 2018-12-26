@@ -22,4 +22,11 @@ if($_GET["act"] == 'voting'){
 	echo voting($_GET['issueitem_id'] , $_GET['IssueID']);
 }
 
+if($_GET["act"] == 'publish'){
+	$smarty->display('vote_publish_issue.tpl');
+}
+
+if($_GET["act"] == 'publish_issue'){
+	echo publish_issue($_GET['issue_info']);
+}
 ?>

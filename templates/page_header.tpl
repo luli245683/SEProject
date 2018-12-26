@@ -10,6 +10,12 @@
                 {if $smarty.session.active_page == 'system_registration'}<li><h3>Registration</h3></li>{/if}   
                 {if $smarty.session.active_page == 'home_titanic'}<li><h3>Titanic</h3></li>{/if}   
                 {if $smarty.session.active_page == 'home_page'}<li><h3>Home</h3></li>{/if}   
+                {if $smarty.get.CategoryCode == '01'}<li><h3>交通</h3></li>{/if}   
+                {if $smarty.get.CategoryCode == '02'}<li><h3>民生</h3></li>{/if}   
+                {if $smarty.get.CategoryCode == '03'}<li><h3>國防</h3></li>{/if}   
+                {if $smarty.get.CategoryCode == '04'}<li><h3>政治</h3></li>{/if}   
+                {if $smarty.get.CategoryCode == '05'}<li><h3>經濟</h3></li>{/if}   
+                {if $smarty.get.CategoryCode == '06'}<li><h3>社會</h3></li>{/if}     
             </ul>
         </div>
         <ul class="nav navbar-top-links navbar-right">

@@ -37,7 +37,7 @@
     <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 	<!-- Gallery -->
 	<!--link href="css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet" -->
-	
+	<link href="css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
     <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">

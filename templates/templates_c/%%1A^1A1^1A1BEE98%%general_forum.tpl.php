@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 17:32:07
+<?php /* Smarty version 2.6.19, created on 2018-12-26 15:21:32
          compiled from general_forum.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 36, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 45, false),)), $this); ?>
     <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -29,12 +29,22 @@ unset($_smarty_tpl_vars);
                         <div class="col-lg-12">
                             <div class="ibox ">
                                 <div class="ibox-content " style="padding: 20px ">
-                                    <?php if (1): ?>
+                                    
                                     <div class="input-group ">
+
+
+                                        <a class="btn  btn-primary m-t-n-xs" href="general_article_search.php?CategoryCode=<?php echo $_GET['CategoryCode']; ?>
+"><strong>搜尋</strong></a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <?php if ($_SESSION['role'] == 'GU' || $_SESSION['role'] == 'administrator'): ?>
                                         <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom=<?php echo $_GET['CategoryCode']; ?>
 "><strong>發文</strong></a>
+                                        <?php endif; ?> 
+
                                     </div>
-                                    <?php endif; ?>                                  
+                                 
+
+                                 
 
 
                                 </div>
@@ -50,8 +60,8 @@ unset($_smarty_tpl_vars);
                                         <?php $_from = $this->_tpl_vars['article_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['list']):
 ?>
-                                        <li class="list-group-item" id="list_<?php echo $this->_tpl_vars['list']['ArticleID']; ?>
-" >
+                                        <li class="list-group-item " id="list_<?php echo $this->_tpl_vars['list']['ArticleID']; ?>
+" style="border-left:6px solid #1c84c6">
                                             <a id="<?php echo $this->_tpl_vars['list']['ArticleID']; ?>
 " onclick="get_article_by_id('<?php echo $this->_tpl_vars['list']['ArticleID']; ?>
 ')">
@@ -66,7 +76,7 @@ unset($_smarty_tpl_vars);
                                                     </p>
                                                     <p class="m-b-none">
                                                         <div >
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>123 Like</button>
+                                                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>Like</button>
                                                             <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
                                                             <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
                                                         </div>
@@ -149,7 +159,7 @@ unset($_smarty_tpl_vars);
         $(document).keydown(function (e) {
             if (e.keyCode == 40) {
                 
-                var article_id = $(\'.active\').next(\'li\')[0].id.split(\'_\')[1];
+                var article_id = $(\'.active\').next(\'li\')[1].id.split(\'_\')[1];
 
                get_article_by_id(article_id);
             }

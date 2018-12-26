@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 14:42:32
+<?php /* Smarty version 2.6.19, created on 2018-12-26 15:44:35
          compiled from Candidate_assembly_article.tpl */ ?>
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -33,7 +33,7 @@ unset($_smarty_tpl_vars);
 </style>
 '; ?>
 
-<body>
+<body class="mini-navbar">
 <div id="wrapper">
     <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.tpl", 'smarty_include_vars' => array()));
@@ -153,12 +153,24 @@ unset($_smarty_tpl_vars);
 
          function start_Article(){
             //var Candidate_ID=$(\'#Candidate_ID\').val();
-
-            $.get(\'Candidate_assembly_article.php\' , {act:\'start_Article\'} , function(data){
-
-                $(\'#Candidate_Article_area\').html(data);
+            var CategoryCode = \''; ?>
+<?php echo $_GET['CategoryCode']; ?>
+<?php echo '\';
+            if (CategoryCode == \'\'){
+                $.get(\'Candidate_assembly_article.php\' , {act:\'start_Article\'} , function(data){
                 
-            });
+                    $(\'#Candidate_Article_area\').html(data);
+                
+                 });
+
+            }else{
+                 $.get(\'general_article_search.php\' , {act:\'start_Article\' , CategoryCode : CategoryCode } , function(data){
+                    console.log(data);
+                    $(\'#Candidate_Article_area\').html(data);
+                    
+                });
+            }
+
          }
 
 
@@ -216,20 +228,33 @@ unset($_smarty_tpl_vars);
 
      }
         function article_search(){
-            
+            var CategoryCode = \''; ?>
+<?php echo $_GET['CategoryCode']; ?>
+<?php echo '\';
+
             var Search_Context = $(\'#Search_Context\').val();
+            if(CategoryCode == \'\'){
 
-            
-            $.get(\'Candidate_assembly_article.php\' , {act:\'article_search\' ,Search_Context : Search_Context} , function(data){
+                
+                $.get(\'Candidate_assembly_article.php\' , {act:\'article_search\' ,Search_Context : Search_Context} , function(data){
 
-               
-                $(\'#Candidate_Article_area\').html(data);
-            });
+                   
+                    $(\'#Candidate_Article_area\').html(data);
+                });
+                
+            }else{
+                $.get(\'general_article_search.php\' , {act:\'article_search\' ,Search_Context : Search_Context} , function(data){
+
+                   
+                    $(\'#Candidate_Article_area\').html(data);
+                });
+            }
 
     }
          function go_Candidate_issued_document(){
                 location.replace("Candidate_issued_document.php");
     }
+
     </script>
     '; ?>
 

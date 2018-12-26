@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-23 19:19:51
+<?php /* Smarty version 2.6.19, created on 2018-12-26 13:16:35
          compiled from menu.tpl */ ?>
 <nav class="navbar-default navbar-static-side " role="navigation">
         <div class="sidebar-collapse">
@@ -23,7 +23,8 @@
                 <li>
                     <a href=""><i class="fa fa-male"></i> <span class="nav-label">Candicate User</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li <?php if ($_SESSION['active_page'] == 'general_forum'): ?> class="active" <?php endif; ?>><a href="home_queue.php">Home</a></li>
+                        <li <?php if ($_SESSION['active_page'] == 'general_forum'): ?> class="active" <?php endif; ?>><a href="home_queue.php"><i class="fa fa-globe"></i>Home</a></li>
+                        <li <?php if ($_SESSION['active_page'] == 'Candidate_assembly_article'): ?> class="active" <?php endif; ?>><a href="Candidate_assembly_article.php"><i class="fa fa-search"></i>Search</a></li>
                     </ul>
                 </li>
                 <li <?php if ($_SESSION['active_page'] == 'vote'): ?> class="active" <?php endif; ?>>

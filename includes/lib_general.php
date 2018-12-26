@@ -1,6 +1,6 @@
 <?
 	function get_article_list_by_category($category_code){
-		$sql = "SELECT a.ArticleID , a.Title , a.cdate , CONCAT(u.FirstName , ',' ,u.LastName) as autor  FROM `article` as a 
+		$sql = "SELECT a.ArticleID , a.Title , a.cdate , CONCAT(u.FirstName , ',' ,u.LastName) as autor , a.Context FROM `article` as a 
 				LEFT JOIN `user` as u ON a.UserID = u.UserID
 				WHERE a.Type = ? AND a.CategoryCode = ? ;";
 		$ps = array("GU" , $category_code);

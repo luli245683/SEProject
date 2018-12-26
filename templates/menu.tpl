@@ -20,7 +20,8 @@
                 <li>
                     <a href=""><i class="fa fa-male"></i> <span class="nav-label">Candicate User</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li {if $smarty.session.active_page == 'general_forum'} class="active" {/if}><a href="home_queue.php">Home</a></li>
+                        <li {if $smarty.session.active_page == 'general_forum'} class="active" {/if}><a href="home_queue.php"><i class="fa fa-globe"></i>Home</a></li>
+                        <li {if $smarty.session.active_page == 'Candidate_assembly_article'} class="active" {/if}><a href="Candidate_assembly_article.php"><i class="fa fa-search"></i>Search</a></li>
                     </ul>
                 </li>
                 <li {if $smarty.session.active_page == 'vote'} class="active" {/if}>

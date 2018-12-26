@@ -104,4 +104,51 @@ function sum_total($array){
 	}
 	return $tmp;
 }
+
+
+function publish_issue($issue_info){
+	$issue_id = get_key_sequence('issue');
+
+	$sql = array();
+	$ps = array();
+	$msg = array();
+	// append new element to array 
+	$sql[] = 'INSERT INTO issue(`IssueID` , `IssueName` , `CategoryID` , `color` , `cdate` , `cuser`)
+			  VALUES (? , ? , ? , ? , CURRENT_TIMESTAMP , ? )';
+	$ps[] = array($issue_id , $issue_info['IssueName'] , $issue_info['CategoryID'] , $issue_info['colorCode'] , $_SESSION['user']);
+
+
+
+	$result = $GLOBALS['db']->transaction($sql , $ps);
+
+	
+	if(empty($result)){
+		update_sequence('issue');
+		$sql = array();
+		$ps = array();
+		$issue_item_array = $issue_info['IssueItem'];
+		for ($i=0; $i < count($issue_item_array) ; $i++) { 
+			$issueitemid = $issue_id."_".$issue_item_array[$i]['item_no'];
+			$sql[] = 'INSERT INTO issueitem(`IssueItemID` , `context`  , `IssueID`)
+			  VALUES (? , ? , ?)';
+			$ps[] = array($issueitemid , $issue_item_array[$i]['item_context'] , $issue_id);
+		}
+		$result = $GLOBALS['db']->transaction($sql , $ps);
+
+		if(empty($result)){
+			$msg['is_success'] = 1;
+			$msg['message'] = 'Insert Issue&Item user seccessful! ';
+		}else{
+			$msg['is_success'] = 0;
+			$msg['message'] = 'Insert Item Fail '.$result;
+		}
+		
+		return json_encode($msg);
+	}else{
+		$msg['is_success'] = 0;
+		$msg['message'] = 'Insert Issue Fail '.$result;
+		return json_encode($msg);
+	}
+	
+}
 ?>

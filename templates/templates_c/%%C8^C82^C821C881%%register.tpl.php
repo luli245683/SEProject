@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-23 19:55:45
+<?php /* Smarty version 2.6.19, created on 2018-12-26 14:02:09
          compiled from register.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -27,8 +27,7 @@
 <body class="gray-bg login-css">
     <div class="registerColumns animated fadeInDown">
         <div class="row registerPanel">
-            <h2 class="font-bold"><?php echo $this->_tpl_vars['luli']; ?>
-</h2>
+            <h2 class="font-bold">Register Form</h2>
             
                 <div class="row">
                     <div class="form-group col-md-8">
@@ -93,7 +92,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6" >
-                             <label >County*</label>
+                             <label >County</label>
                              <select data-placeholder="Choose a County..." class="chosen-select" id="county"  tabindex="2">
                                 <option></option>
                                 <?php $_from = $this->_tpl_vars['county_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -108,7 +107,7 @@
                             </select>
                             </div>
                             <div class="form-group col-md-6" >
-                                <label >Region *</label>
+                                <label >Region </label>
                                 <div id="area_region">
                                     <select data-placeholder="Choose a region..." class="chosen-select" id="region"  tabindex="2" >
                                         <option></option>

@@ -18,6 +18,9 @@
 
 
             <div class="row">
+                {if $smarty.session.role == 'administrator'}
+                <a class="btn  btn-primary m-t-n-xs" href="vote.php?act=publish"><strong>Publish Issue</strong></a>
+                {/if}
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="ibox">
                         <h4 class="text-center m">
@@ -25,12 +28,12 @@
 
                         </h4>
                         <div class="slick_demo_1">
-
+                            {assign var="index" value=1}
                             {foreach from=$ans_count item=issue}
                             <div>
                                 <div class="ibox-content">
                                     <h2> <a class="vote-title  alert  m-b-sm" style="margin: 0px;background-color: {$issue.color}">{$index}.{$issue.IssueName} </a></h2>
-
+                                    {assign var="index" value=$index+1}
                                         <hr/>
                                      
                                         
@@ -42,7 +45,7 @@
                                                     {/if}
                                                     <h2 class="no-margins" >{$ans_count.total}</h2>
                                                     <small>{$ans_count.context}</small>
-                                                    <div class="stat-percent">{$persentage}%<i class="fa fa-level-up text-navy"></i></div>
+                                                    <div class="stat-percent">{$persentage|string_format:"%.2f"}%<i class="fa fa-level-up text-navy"></i></div>
                                                     <div class="progress progress-mini">
                                                         <div style="width: {$persentage}%;" class="progress-bar"></div>
                                                     </div>
@@ -89,20 +92,26 @@
 
 
                     <div class="slick_demo_2">
+                        {assign var="index" value=1}
                         {foreach from=$issue_list item=issue}
                         <div style="padding-right: 20px">
                             <div class="ibox-content " style="background-color: {$issue.color};  border-radius:25px;margin: 50px">
                                 <div class="row">
-                                    <h2 style="padding: 10px">投票{$issue.IssueID}<br><small>{$issue.IssueName}</small></h2>
-
+                                    <h2 style="padding: 10px"><strong>民調{$index}</strong><br><small>{$issue.IssueName}</small></h2>
+                                     {assign var="index" value=$index+1}
                                     <hr/>
 
                                     <div class="col-md-8">
+                                        {assign var="item_index" value=1}
                                         {foreach from=$item_list item=item}
-                                        {if $item.IssueID == $issue.IssueID}                                  
-                                        <label> 
-                                            <input class="Option_{$item.IssueID}" type="radio" name="{$item.IssueID}"  onclick="voting('{$item.IssueItemID}' , '{$item.IssueID}')"> 
-                                            <i></i>{$item.context}</label>
+                                        {if $item.IssueID == $issue.IssueID} 
+                                        <div><label>{$item_index}.&nbsp;&nbsp;&nbsp;</label>
+                                             {assign var="item_index" value=$item_index+1}
+                                            <label> 
+                                                <input class="Option_{$item.IssueID}" type="radio" name="{$item.IssueID}"  onclick="voting('{$item.IssueItemID}' , '{$item.IssueID}')"> 
+                                                <i></i>{$item.context}
+                                            </label>
+                                        </div>
                                         {/if}
                                         {/foreach}
                                     </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 17:12:44
+<?php /* Smarty version 2.6.19, created on 2018-12-26 11:50:41
          compiled from Candidate_issued_document.tpl */ ?>
     <?php echo '
     <style>
@@ -52,10 +52,10 @@ unset($_smarty_tpl_vars);
                             <div class="ibox-content">
                                 <div class="row">
                                     <div class="col-sm-12 b-r">
-                                        <h3 class="m-t-none m-b">候選人發文</h3>
+                                        <h3 class="m-t-none m-b">發文</h3>
 
-                                        
-                                            <div class="form-group"><label>標題</label> <input  placeholder="請輸入標題" class="form-control" id="Title_text"></div>
+                                          <form role="publish_form" id="publish_form">
+                                            <div class="form-group"><label>標題</label> <input  placeholder="請輸入標題" class="form-control" name="Title_text" id="Title_text"></div>
                                             <div class="form-group"><label>類別</label>
                                               <select data-placeholder="Choose a category..." class="chosen-select" id="category"  >
                                                   <option value="01">交通</option>
@@ -67,9 +67,9 @@ unset($_smarty_tpl_vars);
                                               </select>
                                             </div>
                                             <div class="form-group"><label>內文</label>
-                                                <textarea class="my_input" id="Context_text"> </textarea> 
+                                                <textarea class="my_input" name="context" id="Context_text"> </textarea> 
                                            </div>
-
+                                          </form>
                                             
                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs"  onclick="article_submit()"><strong>發文</strong></button>
                                             
@@ -120,6 +120,8 @@ unset($_smarty_tpl_vars);
    <script src="js/plugins/validate/jquery.validate.min.js"></script>
   <!-- Select2 -->
   <script src="js/plugins/select2/select2.full.min.js"></script>
+  <!-- Jquery Validate -->
+  <script src="js/plugins/validate/jquery.validate.min.js"></script>
    <?php echo '
    <script>
        $(document).ready(function(){
@@ -142,27 +144,45 @@ unset($_smarty_tpl_vars);
               "showMethod": "fadeIn",
               "hideMethod": "fadeOut"
             }
+
+             $("#publish_form").validate({
+                rules: {
+                     Title_text: {
+                         required: true,
+                         maxlength : 30
+                     },
+                     context: {
+                         required: true,
+                         minlength: 30
+                     }
+                   }
+             });
        });
        function article_submit(){
-            var Title_text = $(\'#Title_text\').val();
-            var Context_text = $(\'#Context_text\').val();
-            
-             $.post(\'Candidate_issued_document.php\' , {act:\'article_submit\' , Title_text : Title_text ,Context_text :Context_text , Category: $(\'#category\').val()} , function(data){
-                console.log(data);
-                var result = JSON.parse(data);
-                if(result.is_success == \'1\'){
-                    toastr.success(result.message+\'success\', 
-                    {onHidden:function(){
-                           window.history.back();
-                    }});
-                }
-                else
-                    toastr.error(result.message);
+   
+             if($("#publish_form").valid()){
+                var Title_text = $(\'#Title_text\').val();
+                var Context_text = $(\'#Context_text\').val();
+                
+                 $.post(\'Candidate_issued_document.php\' , {act:\'article_submit\' , Title_text : Title_text ,Context_text :Context_text , Category: $(\'#category\').val()} , function(data){
+                    console.log(data);
+                    var result = JSON.parse(data);
+                    if(result.is_success == \'1\'){
+                        toastr.success(result.message,\'Success\',{onHidden:function(){
+                          location.assign("general_forum.php?act=Forumpage&CategoryCode="+$(\'#category\').val());
+                        }});
+                    }
+                    else
+                        toastr.error(result.message);
 
-       
+           
 
 
-             });
+                 });
+             }
+
+    
+
 
 
        }

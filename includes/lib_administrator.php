@@ -10,7 +10,7 @@ function is_access($module_name ,  $function_name){
 }
 
 function get_key_sequence($table_name , $is_update = false){
-	$sql = "SELECT * FROM `keysquence` WHERE `ModuleName` = ? AND `Status` = 'Activate'; ";
+	$sql = "SELECT * FROM `keysquence` WHERE `ModuleName` = ? AND `Status` = 'Active'; ";
 	$ps = array($table_name);
 	$rs = $GLOBALS['db']->fetch_array($sql , $ps);
 	if($is_update){

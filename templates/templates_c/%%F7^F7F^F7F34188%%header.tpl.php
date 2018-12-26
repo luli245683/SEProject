@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-18 19:22:43
+<?php /* Smarty version 2.6.19, created on 2018-12-26 13:46:32
          compiled from header.tpl */ ?>
 <head>
 
@@ -39,7 +39,7 @@
     <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 	<!-- Gallery -->
 	<!--link href="css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet" -->
-	
+	<link href="css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
     <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">

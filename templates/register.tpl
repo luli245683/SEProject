@@ -25,7 +25,7 @@
 <body class="gray-bg login-css">
     <div class="registerColumns animated fadeInDown">
         <div class="row registerPanel">
-            <h2 class="font-bold">{$luli}</h2>
+            <h2 class="font-bold">Register Form</h2>
             
                 <div class="row">
                     <div class="form-group col-md-8">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6" >
-                             <label >County*</label>
+                             <label >County</label>
                              <select data-placeholder="Choose a County..." class="chosen-select" id="county"  tabindex="2">
                                 <option></option>
                                 {foreach from=$county_list item=county}
@@ -101,7 +101,7 @@
                             </select>
                             </div>
                             <div class="form-group col-md-6" >
-                                <label >Region *</label>
+                                <label >Region </label>
                                 <div id="area_region">
                                     <select data-placeholder="Choose a region..." class="chosen-select" id="region"  tabindex="2" >
                                         <option></option>

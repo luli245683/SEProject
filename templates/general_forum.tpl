@@ -13,11 +13,20 @@
                         <div class="col-lg-12">
                             <div class="ibox ">
                                 <div class="ibox-content " style="padding: 20px ">
-                                    {if 1}
+                                    
                                     <div class="input-group ">
+
+
+                                        <a class="btn  btn-primary m-t-n-xs" href="general_article_search.php?CategoryCode={$smarty.get.CategoryCode}"><strong>搜尋</strong></a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        {if $smarty.session.role == 'GU' || $smarty.session.role == 'administrator'}
                                         <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom={$smarty.get.CategoryCode}"><strong>發文</strong></a>
+                                        {/if} 
+
                                     </div>
-                                    {/if}                                  
+                                 
+
+                                 
 
 
                                 </div>
@@ -31,7 +40,7 @@
                                 <div class="full-height-scroll">
                                     <ul class="list-group elements-list" >
                                         {foreach from=$article_list item=list}
-                                        <li class="list-group-item" id="list_{$list.ArticleID}" >
+                                        <li class="list-group-item " id="list_{$list.ArticleID}" style="border-left:6px solid #1c84c6">
                                             <a id="{$list.ArticleID}" onclick="get_article_by_id('{$list.ArticleID}')">
                                                 <small class="pull-right text-muted"> {$list.cdate|date_format:"%Y/%m/%d"}</small>
                                                 <strong>{$list.autor}</strong>
@@ -41,7 +50,7 @@
                                                     </p>
                                                     <p class="m-b-none">
                                                         <div >
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>123 Like</button>
+                                                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>Like</button>
                                                             <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
                                                             <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
                                                         </div>
@@ -119,7 +128,7 @@
         $(document).keydown(function (e) {
             if (e.keyCode == 40) {
                 
-                var article_id = $('.active').next('li')[0].id.split('_')[1];
+                var article_id = $('.active').next('li')[1].id.split('_')[1];
 
                get_article_by_id(article_id);
             }

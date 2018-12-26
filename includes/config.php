@@ -1,10 +1,11 @@
 <?
-define("db_host","140.115.87.61");
+define("db_host","140.115.87.80");
 define("db_user","luli");
 define("db_password","0034");
 
 define("db_port","3306");
 define("db_name","seproject");
+
 // define("db_host","127.0.0.1");
 // define("db_user","root");
 // define("db_password","12345678");

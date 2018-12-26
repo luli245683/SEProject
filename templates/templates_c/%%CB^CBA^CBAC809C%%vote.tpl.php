@@ -1,5 +1,7 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-23 17:36:56
+<?php /* Smarty version 2.6.19, created on 2018-12-26 14:50:58
          compiled from vote.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_format', 'vote.tpl', 48, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -32,6 +34,9 @@ unset($_smarty_tpl_vars);
 
 
             <div class="row">
+                <?php if ($_SESSION['role'] == 'administrator'): ?>
+                <a class="btn  btn-primary m-t-n-xs" href="vote.php?act=publish"><strong>Publish Issue</strong></a>
+                <?php endif; ?>
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="ibox">
                         <h4 class="text-center m">
@@ -39,7 +44,7 @@ unset($_smarty_tpl_vars);
 
                         </h4>
                         <div class="slick_demo_1">
-
+                            <?php $this->assign('index', 1); ?>
                             <?php $_from = $this->_tpl_vars['ans_count']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['issue']):
 ?>
@@ -49,7 +54,7 @@ unset($_smarty_tpl_vars);
 "><?php echo $this->_tpl_vars['index']; ?>
 .<?php echo $this->_tpl_vars['issue']['IssueName']; ?>
  </a></h2>
-
+                                    <?php $this->assign('index', $this->_tpl_vars['index']+1); ?>
                                         <hr/>
                                      
                                         
@@ -65,7 +70,7 @@ unset($_smarty_tpl_vars);
 </h2>
                                                     <small><?php echo $this->_tpl_vars['ans_count']['context']; ?>
 </small>
-                                                    <div class="stat-percent"><?php echo $this->_tpl_vars['persentage']; ?>
+                                                    <div class="stat-percent"><?php echo ((is_array($_tmp=$this->_tpl_vars['persentage'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
 %<i class="fa fa-level-up text-navy"></i></div>
                                                     <div class="progress progress-mini">
                                                         <div style="width: <?php echo $this->_tpl_vars['persentage']; ?>
@@ -114,6 +119,7 @@ unset($_smarty_tpl_vars);
 
 
                     <div class="slick_demo_2">
+                        <?php $this->assign('index', 1); ?>
                         <?php $_from = $this->_tpl_vars['issue_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['issue']):
 ?>
@@ -121,25 +127,31 @@ unset($_smarty_tpl_vars);
                             <div class="ibox-content " style="background-color: <?php echo $this->_tpl_vars['issue']['color']; ?>
 ;  border-radius:25px;margin: 50px">
                                 <div class="row">
-                                    <h2 style="padding: 10px">投票<?php echo $this->_tpl_vars['issue']['IssueID']; ?>
-<br><small><?php echo $this->_tpl_vars['issue']['IssueName']; ?>
+                                    <h2 style="padding: 10px"><strong>民調<?php echo $this->_tpl_vars['index']; ?>
+</strong><br><small><?php echo $this->_tpl_vars['issue']['IssueName']; ?>
 </small></h2>
-
+                                     <?php $this->assign('index', $this->_tpl_vars['index']+1); ?>
                                     <hr/>
 
                                     <div class="col-md-8">
+                                        <?php $this->assign('item_index', 1); ?>
                                         <?php $_from = $this->_tpl_vars['item_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['item']):
 ?>
-                                        <?php if ($this->_tpl_vars['item']['IssueID'] == $this->_tpl_vars['issue']['IssueID']): ?>                                  
-                                        <label> 
-                                            <input class="Option_<?php echo $this->_tpl_vars['item']['IssueID']; ?>
+                                        <?php if ($this->_tpl_vars['item']['IssueID'] == $this->_tpl_vars['issue']['IssueID']): ?> 
+                                        <div><label><?php echo $this->_tpl_vars['item_index']; ?>
+.&nbsp;&nbsp;&nbsp;</label>
+                                             <?php $this->assign('item_index', $this->_tpl_vars['item_index']+1); ?>
+                                            <label> 
+                                                <input class="Option_<?php echo $this->_tpl_vars['item']['IssueID']; ?>
 " type="radio" name="<?php echo $this->_tpl_vars['item']['IssueID']; ?>
 "  onclick="voting('<?php echo $this->_tpl_vars['item']['IssueItemID']; ?>
 ' , '<?php echo $this->_tpl_vars['item']['IssueID']; ?>
 ')"> 
-                                            <i></i><?php echo $this->_tpl_vars['item']['context']; ?>
-</label>
+                                                <i></i><?php echo $this->_tpl_vars['item']['context']; ?>
+
+                                            </label>
+                                        </div>
                                         <?php endif; ?>
                                         <?php endforeach; endif; unset($_from); ?>
                                     </div>
