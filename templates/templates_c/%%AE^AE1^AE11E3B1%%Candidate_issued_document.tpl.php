@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-26 11:50:41
+<?php /* Smarty version 2.6.19, created on 2018-12-26 20:28:39
          compiled from Candidate_issued_document.tpl */ ?>
     <?php echo '
     <style>
@@ -72,7 +72,8 @@ unset($_smarty_tpl_vars);
                                           </form>
                                             
                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs"  onclick="article_submit()"><strong>發文</strong></button>
-                                            
+                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                           <button class="btn btn-sm btn-danger pull-right m-t-n-xs"  onclick="window.history.back()"><strong>取消</strong></button>
 
                                     
                                    </div>

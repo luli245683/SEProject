@@ -1,7 +1,5 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-26 14:50:58
+<?php /* Smarty version 2.6.19, created on 2018-12-27 20:14:44
          compiled from vote.tpl */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'string_format', 'vote.tpl', 48, false),)), $this); ?>
 <!DOCTYPE html>
 <html>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
@@ -43,67 +41,13 @@ unset($_smarty_tpl_vars);
                             近期開放的民意調查
 
                         </h4>
-                        <div class="slick_demo_1">
-                            <?php $this->assign('index', 1); ?>
-                            <?php $_from = $this->_tpl_vars['ans_count']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['issue']):
-?>
-                            <div>
-                                <div class="ibox-content">
-                                    <h2> <a class="vote-title  alert  m-b-sm" style="margin: 0px;background-color: <?php echo $this->_tpl_vars['issue']['color']; ?>
-"><?php echo $this->_tpl_vars['index']; ?>
-.<?php echo $this->_tpl_vars['issue']['IssueName']; ?>
- </a></h2>
-                                    <?php $this->assign('index', $this->_tpl_vars['index']+1); ?>
-                                        <hr/>
-                                     
-                                        
-                                      <ul class="stat-list">
-                                            <?php $_from = $this->_tpl_vars['issue']['ItemList']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['ans_count']):
-?>
-                                                <li>
-                                                    <?php if ($this->_tpl_vars['issue']['Sum'] > 0): ?>
-                                                    <?php $this->assign('persentage', $this->_tpl_vars['ans_count']['total']/$this->_tpl_vars['issue']['Sum']*100); ?>
-                                                    <?php endif; ?>
-                                                    <h2 class="no-margins" ><?php echo $this->_tpl_vars['ans_count']['total']; ?>
-</h2>
-                                                    <small><?php echo $this->_tpl_vars['ans_count']['context']; ?>
-</small>
-                                                    <div class="stat-percent"><?php echo ((is_array($_tmp=$this->_tpl_vars['persentage'])) ? $this->_run_mod_handler('string_format', true, $_tmp, "%.2f") : smarty_modifier_string_format($_tmp, "%.2f")); ?>
-%<i class="fa fa-level-up text-navy"></i></div>
-                                                    <div class="progress progress-mini">
-                                                        <div style="width: <?php echo $this->_tpl_vars['persentage']; ?>
-%;" class="progress-bar"></div>
-                                                    </div>
-                                                </li>
-                                            <?php endforeach; endif; unset($_from); ?>
-                       
-                                         </ul>
-                                  
-                                 
-                                        <!-- <li>
-                                            <h2 class="no-margins ">4,422</h2>
-                                            <small>Orders in last month</small>
-                                            <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 60%;" class="progress-bar"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <h2 class="no-margins ">9,180</h2>
-                                            <small>Monthly income from orders</small>
-                                            <div class="stat-percent">22% <i class="fa fa-bolt text-navy"></i></div>
-                                            <div class="progress progress-mini">
-                                                <div style="width: 22%;" class="progress-bar"></div>
-                                            </div>
-                                        </li> -->
-             
-                                    
-                                </div>
-                            </div>
-                            <?php endforeach; endif; unset($_from); ?>
-                        </div>
+                         <div id="voting_result_area">
+                            <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "voting_result.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+                         </div>
                     </div>
                 </div>
             </div>
@@ -253,14 +197,33 @@ unset($_smarty_tpl_vars);
         function voting(IssueItemID ,IssueID){
             console.log(IssueID);
             $.get(\'vote.php\' , {act:\'voting\' , issueitem_id : IssueItemID , IssueID:IssueID} , function(data){
-                console.log(data);
+                
                 var result = JSON.parse(data);
-                if(result.is_success == 1 ){
-                    toastr.success(result.message , \'Success\');
-                    
+                console.log(result);
+                var message =  JSON.parse(result.message);
+                if(message.is_success == 1 ){
+                    toastr.success(message.message , \'Success\');
+                    $(\'#voting_result_area\').html(result.html);
+                    $(\'.slick_demo_1\').slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        fade: true,
+                        asNavFor: \'.slick_demo_2\'
+                    });
+
+                    $(\'.slick_demo_2\').slick({
+
+                        slidesToShow: 3,
+                        slidesToScroll: 5,
+                        asNavFor: \'.slick_demo_1\',
+                        dots: true,
+                        centerMode: true,
+                        focusOnSelect: true
+                    });
                 }
                 else
-                    toastr.error(result.message);
+                    toastr.error(message.message);
             });
         }
     </script>

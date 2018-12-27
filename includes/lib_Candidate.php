@@ -60,7 +60,7 @@ function get_article_id($arr){
 	return $result;
 }
 function get_article_reply($article_id){
-
+	
 		$sql = "SELECT ra.* , b.LastName,b.FirstName FROM article_reply as ra 
 				LEFT JOIN article as a ON a.ArticleID = ra.ArticleID
 				LEFT JOIN `user` as b on b.UserID=ra.UserID

@@ -1,5 +1,5 @@
 <?
-define("db_host","140.115.87.80");
+define("db_host","140.115.87.9");
 define("db_user","luli");
 define("db_password","0034");
 

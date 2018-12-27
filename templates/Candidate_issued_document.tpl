@@ -57,7 +57,8 @@
                                           </form>
                                             
                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs"  onclick="article_submit()"><strong>發文</strong></button>
-                                            
+                                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                           <button class="btn btn-sm btn-danger pull-right m-t-n-xs"  onclick="window.history.back()"><strong>取消</strong></button>
 
                                     
                                    </div>

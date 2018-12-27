@@ -19,7 +19,15 @@ if(empty($_GET["act"])){
 }
 
 if($_GET["act"] == 'voting'){
-	echo voting($_GET['issueitem_id'] , $_GET['IssueID']);
+
+
+	$result = array();
+	$result['message'] = voting($_GET['issueitem_id'] , $_GET['IssueID']);
+	$ans_count = get_ans_count();
+	$smarty->assign('ans_count',$ans_count);
+	$result['html'] = $smarty->fetch('voting_result.tpl');
+
+	echo json_encode($result);
 }
 
 if($_GET["act"] == 'publish'){
