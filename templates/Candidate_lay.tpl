@@ -121,8 +121,8 @@
      // }
 
      function start_Article(){
-        var Candidate_ID=$('#Candidate_ID').val();
-        $.get('Candidate_lay.php' , {act:'start_Article' , Candidate_ID : Candidate_ID} , function(data){
+        
+        $.get('Candidate_lay.php' , {act:'start_Article' , Candidate_Name : '{/literal}{$smarty.get.Candidate_Name}{literal}'} , function(data){
             //console.log(data);
             $('#Candidate_Article_area').html(data);
 

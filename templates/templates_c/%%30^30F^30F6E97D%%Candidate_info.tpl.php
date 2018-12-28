@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-22 16:04:34
+<?php /* Smarty version 2.6.19, created on 2018-12-28 12:57:53
          compiled from Candidate_info.tpl */ ?>
 <div class="row">
    <div class="col-lg-12" style="background-color: white; padding: 20px">

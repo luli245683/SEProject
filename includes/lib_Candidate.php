@@ -39,13 +39,13 @@ function get_Candidate_lay($Candidate_Name = null , $is_member = false){
 }
 
 
-function get_Candidate_Article($Candidate_ID = null){
-	if(empty($Candidate_ID)){
+function get_Candidate_Article($Candidate_Name = null){
+	if(empty($Candidate_Name)){
 		$sql = "SELECT * FROM `article` as ar LEFT JOIN `user` as a ON a.UserID=ar.UserID";
 		$ps = array();
 	}else{
-		$sql = "SELECT * FROM `article` as ar LEFT JOIN `user` as a ON a.UserID=ar.UserID WHERE ar.UserID = ? ";
-		$ps = array($Candidate_ID);
+		$sql = "SELECT * FROM `article` as ar LEFT JOIN `user` as u ON u.UserID=ar.UserID WHERE CONCAT(u.FirstName,u.LastName) = ? ";
+		$ps = array($Candidate_Name);
 
 	}
 		$rs=$GLOBALS['db']->fetch_array($sql , $ps);

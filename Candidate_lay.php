@@ -25,8 +25,9 @@ if($_GET["act"]=='start_Candidate'){
 }
 
 if($_GET["act"]=='start_Article'){
-	$Candidate_ID = $_GET['Candidate_ID'];
-	$article_list = get_Candidate_Article($Candidate_ID);//取得{柯文哲}文章資料庫
+	$Candidate_Name = $_GET['Candidate_Name'];
+	
+	$article_list = get_Candidate_Article($Candidate_Name);//取得{柯文哲}文章資料庫
 	$article_id_list = get_article_id($article_list);//將文章資料庫傳過去 回傳文章的id進這變數 所以這樣就有對到相對應的 文章id
 	for ($i=0; $i < count($article_id_list); $i++) { 
 		$article_list[$i]['reply'] = get_article_reply($article_id_list[$i]);//在article_list裡再創一個欄位reply 因為回傳是陣列 所以reply裡是陣列
