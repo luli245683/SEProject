@@ -46,9 +46,7 @@
                             <p>出生地:{$candidate_info.birthplace}</p>
                             <p>學歷:{$candidate_info.education}</p>
                             <p>現任:{$candidate_info.current}</p>
-                            <div class="text-right">
-                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                            </div>
+                         
                         </div>
                     </div>
                 </a>

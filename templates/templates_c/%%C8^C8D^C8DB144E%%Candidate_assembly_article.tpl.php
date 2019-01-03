@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-26 15:44:35
+<?php /* Smarty version 2.6.19, created on 2018-12-29 17:06:42
          compiled from Candidate_assembly_article.tpl */ ?>
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;

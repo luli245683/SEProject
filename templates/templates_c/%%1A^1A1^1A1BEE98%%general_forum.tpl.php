@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-26 15:21:32
+<?php /* Smarty version 2.6.19, created on 2019-01-02 19:20:08
          compiled from general_forum.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 45, false),)), $this); ?>
@@ -36,7 +36,7 @@ unset($_smarty_tpl_vars);
                                         <a class="btn  btn-primary m-t-n-xs" href="general_article_search.php?CategoryCode=<?php echo $_GET['CategoryCode']; ?>
 "><strong>搜尋</strong></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <?php if ($_SESSION['role'] == 'GU' || $_SESSION['role'] == 'administrator'): ?>
+                                        <?php if (is_access ( 'GUArticle' , 'publish' )): ?>
                                         <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom=<?php echo $_GET['CategoryCode']; ?>
 "><strong>發文</strong></a>
                                         <?php endif; ?> 
@@ -75,11 +75,7 @@ unset($_smarty_tpl_vars);
 
                                                     </p>
                                                     <p class="m-b-none">
-                                                        <div >
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>Like</button>
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
-                                                        </div>
+                                                
                                                     </p>
                                                 </div>
                                             </a>
@@ -234,6 +230,11 @@ unset($_smarty_tpl_vars);
 
      function clear_all_active(){
         $(\'.list-group-item\').removeClass(\'active\');
+     }
+
+     function comment(focus_id){
+        console.log($("#"+focus_id));
+        $("#"+focus_id).focus();
      }
 </script>
 '; ?>

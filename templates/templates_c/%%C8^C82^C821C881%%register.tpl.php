@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-28 12:31:18
+<?php /* Smarty version 2.6.19, created on 2018-12-29 16:55:06
          compiled from register.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -130,13 +130,9 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4">
-                        <div style="height: 100px">
-
-                        </div>
-
-                        <div class="row">
-                            <a data-gallery=""><img src="img/log-in.png" style="display: block ; margin: auto"></a>
-                        </div>
+                        
+                            <img src="images/logo.png" style="margin: auto;max-width: 100%;max-height: 100%">
+                       
                     </div>
                 </div>
 

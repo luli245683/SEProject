@@ -124,13 +124,9 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4">
-                        <div style="height: 100px">
-
-                        </div>
-
-                        <div class="row">
-                            <a data-gallery=""><img src="img/log-in.png" style="display: block ; margin: auto"></a>
-                        </div>
+                        
+                            <img src="images/logo.png" style="margin: auto;max-width: 100%;max-height: 100%">
+                       
                     </div>
                 </div>
 

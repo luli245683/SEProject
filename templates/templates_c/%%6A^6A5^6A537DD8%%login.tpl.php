@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-15 16:24:52
+<?php /* Smarty version 2.6.19, created on 2018-12-29 15:11:16
          compiled from login.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -20,32 +20,16 @@ unset($_smarty_tpl_vars);
 
         <div class="row loginPanel">
 
-            <div class="col-md-6">
-                <h2 class="font-bold">Welcome to IN+</h2>
-
-                <p>
-                    Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-                </p>
-
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </p>
-
-                <p>
-                    When an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-
-                <p>
-                    <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
-                </p>
-
+            <div class="col-md-6" style="padding: 30px">
+               
+                <img src="images/logo.png" style="max-width: 100%;max-height: 100%" /><br/><br/><br/>
             </div>
             <div class="col-md-6">
                 <div class="">
                     <?php if (! $this->_tpl_vars['is_login']): ?>
-                        <div class="login">
-                            <img src="images/logo.png" height="100" width="100"/><br/><br/><br/>
-                            <h3>Welcome to GOGOWASH</h3>             
+                        <div class="login" style="padding-top: 65px">
+                            
+                            <h3>Welcome to MaChiLine</h3>             
                             <p>Login in. To see it in action.</p>
                             <form class="m-t" role="form" method="POST" action="login.php">
                                 <div class="form-group">

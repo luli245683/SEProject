@@ -20,7 +20,7 @@ if(empty($_GET["act"])){
 
 if($_GET["act"] == 'voting'){
 
-
+	#voting.php?act=voting&issueitem_id=?&IssueID=?
 	$result = array();
 	$result['message'] = voting($_GET['issueitem_id'] , $_GET['IssueID']);
 	$ans_count = get_ans_count();

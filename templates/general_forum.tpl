@@ -19,7 +19,7 @@
 
                                         <a class="btn  btn-primary m-t-n-xs" href="general_article_search.php?CategoryCode={$smarty.get.CategoryCode}"><strong>搜尋</strong></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        {if $smarty.session.role == 'GU' || $smarty.session.role == 'administrator'}
+                                        {if is_access('GUArticle' , 'publish')}
                                         <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom={$smarty.get.CategoryCode}"><strong>發文</strong></a>
                                         {/if} 
 
@@ -49,11 +49,7 @@
                                                         {$list.Title}
                                                     </p>
                                                     <p class="m-b-none">
-                                                        <div >
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i>Like</button>
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
-                                                            <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
-                                                        </div>
+                                                
                                                     </p>
                                                 </div>
                                             </a>
@@ -203,6 +199,11 @@
 
      function clear_all_active(){
         $('.list-group-item').removeClass('active');
+     }
+
+     function comment(focus_id){
+        console.log($("#"+focus_id));
+        $("#"+focus_id).focus();
      }
 </script>
 {/literal}

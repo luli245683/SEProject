@@ -26,7 +26,7 @@
             <button class="btn btn-white btn-xs" id="praise_insert_{$article.ArticleID}" 
             onclick="insert_praise('{$article.ArticleID}')" ><i class="fa fa-thumbs-up"></i>讚 </button>
             {/if}
-            <button class="btn btn-white btn-xs" ><i class="fa fa-comments"></i>留言 </button>
+            <button class="btn btn-white btn-xs" onclick="comment('comment_text_{$article.ArticleID}')"><i class="fa fa-comments"></i>留言 </button>
 
 
 

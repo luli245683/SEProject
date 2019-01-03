@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-23 19:11:38
+<?php /* Smarty version 2.6.19, created on 2019-01-02 19:20:54
          compiled from candidate_info_by_region.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -71,9 +71,7 @@ unset($_smarty_tpl_vars);
 </p>
                             <p>現任:<?php echo $this->_tpl_vars['candidate_info']['current']; ?>
 </p>
-                            <div class="text-right">
-                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                            </div>
+                         
                         </div>
                     </div>
                 </a>

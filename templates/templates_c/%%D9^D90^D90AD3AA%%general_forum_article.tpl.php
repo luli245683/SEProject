@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-20 23:25:23
+<?php /* Smarty version 2.6.19, created on 2019-01-02 19:19:16
          compiled from general_forum_article.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum_article.tpl', 53, false),)), $this); ?>
@@ -39,7 +39,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format
             onclick="insert_praise('<?php echo $this->_tpl_vars['article']['ArticleID']; ?>
 ')" ><i class="fa fa-thumbs-up"></i>讚 </button>
             <?php endif; ?>
-            <button class="btn btn-white btn-xs" ><i class="fa fa-comments"></i>留言 </button>
+            <button class="btn btn-white btn-xs" onclick="comment('comment_text_<?php echo $this->_tpl_vars['article']['ArticleID']; ?>
+')"><i class="fa fa-comments"></i>留言 </button>
 
 
 

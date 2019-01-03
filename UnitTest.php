@@ -10,8 +10,16 @@ require_once("includes/lib_voting.php");
 
 
 if(empty($_GET["act"])){
+	#display corresponding view
 	$smarty->display('UnitTest.tpl');
+}
 
+if($_GET['act'] == 'action1'){
+	#do the right things of action1
+}
+
+if($_GET['act'] == 'action2'){
+	#do the right things of action2
 }
 
 if($_GET['act'] == "testing"){
@@ -24,4 +32,5 @@ if($_GET['act'] == "testing"){
 	$smarty->assign('result' , $result);
 	$smarty->display('UnitTest_Result.tpl');
 }
+
 ?>
