@@ -41,7 +41,7 @@ function get_Candidate_lay($Candidate_Name = null , $is_member = false){
 
 function get_Candidate_Article($Candidate_Name = null){
 	if(empty($Candidate_Name)){
-		$sql = "SELECT * FROM `article` as ar LEFT JOIN `user` as a ON a.UserID=ar.UserID";
+		$sql = "SELECT * FROM `article` as ar LEFT JOIN `user` as a ON a.UserID=ar.UserID WHERE ar.type = 'CU'";
 		$ps = array();
 	}else{
 		$sql = "SELECT * FROM `article` as ar LEFT JOIN `user` as u ON u.UserID=ar.UserID WHERE CONCAT(u.FirstName,u.LastName) = ? ";
