@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.19, created on 2019-01-02 19:20:08
+<?php /* Smarty version 2.6.19, created on 2019-01-03 20:01:23
          compiled from general_forum.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 45, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'general_forum.tpl', 46, false),)), $this); ?>
     <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "header.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -36,11 +36,12 @@ unset($_smarty_tpl_vars);
                                         <a class="btn  btn-primary m-t-n-xs" href="general_article_search.php?CategoryCode=<?php echo $_GET['CategoryCode']; ?>
 "><strong>搜尋</strong></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
                                         <?php if (is_access ( 'GUArticle' , 'publish' )): ?>
                                         <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom=<?php echo $_GET['CategoryCode']; ?>
 "><strong>發文</strong></a>
                                         <?php endif; ?> 
-
+                                        
                                     </div>
                                  
 

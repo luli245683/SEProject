@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2018-12-29 16:55:06
+<?php /* Smarty version 2.6.19, created on 2019-01-03 20:51:48
          compiled from register.tpl */ ?>
 <!DOCTYPE html>
 <html>
@@ -202,6 +202,43 @@
                 return true;
             return false;
         });
+
+        // jQuery.validator.addMethod("CheckAccountExist",  function(value, element) {
+        //     var response;
+        //     $.ajax({
+        //         type: "GET",
+        //         url: "register.php?act=check_exist&account="+value,
+
+        //         dataType:"html",
+        //         success: function(msg)
+        //         {
+        //             //If username exists, set response to true
+        //             response = parseInt(msg)>0;
+        //             console.log(!response);
+        //         }
+        //      });
+        //     return !response;
+        // }, "* Account is already exist!");
+
+        var response;
+        $.validator.addMethod(
+            "CheckAccountExist", 
+            function(value, element) {
+                $.ajax({
+                    type: "GET",
+                    url: "register.php?act=check_exist&account="+value,
+                    dataType:"html",
+                    success: function(msg)
+                    {
+                        //If username exists, set response to true
+                        response = parseInt(msg)>0;
+                    }
+                 });
+                return !response;
+            },
+            "Account is already exist!"
+        );
+        console.log(response);
          $("#register_form").validate({
                  rules: {
                      firstName: {
@@ -211,7 +248,8 @@
                          required: true
                      },
                      account: {
-                         required: true
+                         required: true,
+                         CheckAccountExist: true
                      },
                      password: {
                          required: true,
@@ -277,7 +315,7 @@
             autoclose: true,
 
         });
-
+      
     });
 
     function onchange_county(CountyCode){
@@ -328,6 +366,8 @@
         
         
     }
+
+ 
 </script>
 '; ?>
 

@@ -32,4 +32,13 @@ function get_user($account){
 	return $rs;
 }
 
+function get_user_return_json($account){
+
+	$rs = array();
+	$ps = array();
+	$sql = "SELECT * FROM `user` WHERE Account = ? ";
+	$ps[] = $account;
+	$rs = $GLOBALS['db']->fetch_array($sql , $ps);
+	return count($rs);
+}
 ?>

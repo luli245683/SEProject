@@ -19,10 +19,11 @@
 
                                         <a class="btn  btn-primary m-t-n-xs" href="general_article_search.php?CategoryCode={$smarty.get.CategoryCode}"><strong>搜尋</strong></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
                                         {if is_access('GUArticle' , 'publish')}
                                         <a class="btn  btn-primary m-t-n-xs" href="Candidate_issued_document.php?CategoryFrom={$smarty.get.CategoryCode}"><strong>發文</strong></a>
                                         {/if} 
-
+                                        
                                     </div>
                                  
 
